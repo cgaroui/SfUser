@@ -20,6 +20,11 @@
             <a href="{{path('app_register')}}">S'inscrire</a>
         {% endif %}
 
+        {% if is_granted('ROLE_ADMIN') %}
+            
+            <a href=""> <p>Panneau d'administration</p></a>
+        {% endif %}
+
 
         {% block body %}{% endblock %}
     </body>
