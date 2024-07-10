@@ -42,6 +42,8 @@ class AppAuthentificationAuthenticator extends AbstractLoginFormAuthenticator
         );
     }
 
+
+    //methode lorsque j'ai réussi à me connecter 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
@@ -49,7 +51,7 @@ class AppAuthentificationAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
+        return new RedirectResponse($this->urlGenerator->generate('app_home'));
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
